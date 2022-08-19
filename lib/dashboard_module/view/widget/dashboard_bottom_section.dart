@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_application/dashboard_module/view/widget/text_widget.dart';
-import 'package:payment_application/utils/core/border_radius_constants.dart';
 import 'package:payment_application/utils/core/color_constants.dart';
 import 'package:payment_application/utils/core/space_constants.dart';
+import 'package:payment_application/utils/widgets/search_widget.dart';
 
 class DashboardBottomSection extends StatelessWidget {
   const DashboardBottomSection({
@@ -26,23 +25,7 @@ class DashboardBottomSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       kHeight10,
-                      CupertinoTextField(
-                        placeholder: 'Search Transactions',
-                        placeholderStyle: const TextStyle(color: kGrey),
-                        padding: const EdgeInsets.symmetric(vertical: 13),
-                        prefix: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.search,
-                            size: 30,
-                            color: kBlueColor,
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(158, 224, 224, 224),
-                          borderRadius: kRadius10,
-                        ),
-                      ),
+                      const SearchWidget(),
                       kHeight20,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

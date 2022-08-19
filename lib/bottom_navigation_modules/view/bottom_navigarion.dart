@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:payment_application/bottom_navigation_modules/view/widgets/bottom_navigation_widget.dart';
 import 'package:payment_application/dashboard_module/view/dashboard_screen.dart';
 import 'package:payment_application/scan_code_module/view/scan_code_screen.dart';

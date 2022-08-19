@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_application/utils/core/border_radius_constants.dart';
 import 'package:payment_application/utils/core/color_constants.dart';
@@ -14,13 +13,38 @@ class SliverAppBarWidget extends StatelessWidget {
     return SliverAppBar(
       // floating: true,
       backgroundColor: kBackGrounGrey,
-      actions: const [
+      actions: [
         Padding(
-          padding: EdgeInsets.only(right: 15.0),
-          child: Icon(
-            Icons.notifications,
-            color: kGrey,
-            size: 28,
+          padding: const EdgeInsets.only(right: 15.0, top: 15),
+          child: Stack(
+            children: [
+              const Icon(
+                Icons.notifications,
+                color: kGrey,
+                size: 28,
+              ),
+              Positioned(
+                right: 0,
+                top: 0,
+                child: Container(
+                  padding: const EdgeInsets.all(2),
+                  decoration: const BoxDecoration(
+                      color: Colors.red, shape: BoxShape.circle),
+                  constraints: const BoxConstraints(
+                    minWidth: 16,
+                    minHeight: 16,
+                  ),
+                  child: const Text(
+                    '2',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
           ),
         )
       ],
@@ -62,7 +86,7 @@ class SliverAppBarWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
                 child: Container(
-                  height: 150,
+                  height: 140,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: kWhite,
