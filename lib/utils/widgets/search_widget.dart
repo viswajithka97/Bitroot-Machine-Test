@@ -1,8 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:payment_application/utils/core/border_radius_constants.dart';
 import 'package:payment_application/utils/core/color_constants.dart';
+import 'package:payment_application/utils/widgets/search_screen_widget.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({
@@ -12,6 +14,9 @@ class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
+      onTap: () {
+        Get.to(() => const SearchScreen());
+      },
       placeholder: 'Search Transactions',
       placeholderStyle: const TextStyle(color: kGrey),
       padding: const EdgeInsets.symmetric(vertical: 13),

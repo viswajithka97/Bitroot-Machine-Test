@@ -12,7 +12,14 @@ class DashboardBottomSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-        child: ListView.separated(
+        child: Column(
+      children: [
+        kHeight10,
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0),
+          child: SearchWidget(),
+        ),
+        ListView.separated(
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 10,
             shrinkWrap: true,
@@ -24,8 +31,6 @@ class DashboardBottomSection extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      kHeight10,
-                      const SearchWidget(),
                       kHeight20,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,6 +92,8 @@ class DashboardBottomSection extends StatelessWidget {
                   ),
                 ),
               );
-            }));
+            }),
+      ],
+    ));
   }
 }
