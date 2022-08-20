@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:payment_application/bottom_navigation_modules/controller/bottom_nav_controller.dart';
 import 'package:payment_application/bottom_navigation_modules/view/widgets/bottom_navigation_widget.dart';
 import 'package:payment_application/dashboard_module/view/dashboard_screen.dart';
 import 'package:payment_application/scan_code_module/view/scan_code_screen.dart';
@@ -14,6 +16,7 @@ class BottomNavigationScreen extends StatelessWidget {
     const SendRequestScreen(),
     const SettingsScreen(),
   ];
+  final controller = Get.put(BottomNavController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

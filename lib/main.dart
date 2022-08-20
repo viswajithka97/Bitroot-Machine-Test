@@ -7,9 +7,10 @@ import 'package:payment_application/bottom_navigation_modules/view/bottom_naviga
 late Box<DBModel> box;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   Hive.registerAdapter(DBModelAdapter());
   box = await Hive.openBox<DBModel>('student');
-  
+
   runApp(const MyApp());
 }
 

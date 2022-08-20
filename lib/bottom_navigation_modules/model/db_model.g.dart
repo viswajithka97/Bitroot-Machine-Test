@@ -18,13 +18,13 @@ class DBModelAdapter extends TypeAdapter<DBModel> {
     };
     return DBModel(
       name: fields[0] as String,
-      email: fields[1] as String,
-      image: fields[2] as String,
-      productName: fields[3] as String,
-      productPrice: fields[4] as String,
-      store: fields[5] as String,
-      returnTime: fields[6] as String,
-      address: fields[7] as String,
+      subName: fields[1] as String,
+      image: fields[3] as String,
+      productName: fields[4] as String,
+      productPrice: fields[5] as String,
+      store: fields[6] as String,
+      returnTime: fields[7] as String,
+      address: fields[8] as String,
     );
   }
 
@@ -35,18 +35,18 @@ class DBModelAdapter extends TypeAdapter<DBModel> {
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.email)
-      ..writeByte(2)
-      ..write(obj.image)
+      ..write(obj.subName)
       ..writeByte(3)
-      ..write(obj.productName)
+      ..write(obj.image)
       ..writeByte(4)
-      ..write(obj.productPrice)
+      ..write(obj.productName)
       ..writeByte(5)
-      ..write(obj.store)
+      ..write(obj.productPrice)
       ..writeByte(6)
-      ..write(obj.returnTime)
+      ..write(obj.store)
       ..writeByte(7)
+      ..write(obj.returnTime)
+      ..writeByte(8)
       ..write(obj.address);
   }
 

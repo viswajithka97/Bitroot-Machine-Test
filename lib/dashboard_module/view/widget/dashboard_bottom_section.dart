@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:payment_application/bottom_navigation_modules/controller/bottom_nav_controller.dart';
 import 'package:payment_application/dashboard_module/view/widget/text_widget.dart';
 import 'package:payment_application/utils/core/color_constants.dart';
 import 'package:payment_application/utils/core/space_constants.dart';
 import 'package:payment_application/utils/widgets/search_widget.dart';
 
 class DashboardBottomSection extends StatelessWidget {
-  const DashboardBottomSection({
+  DashboardBottomSection({
     Key? key,
   }) : super(key: key);
 
+  final controller = Get.find<BottomNavController>();
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -19,41 +22,46 @@ class DashboardBottomSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 15.0),
           child: SearchWidget(),
         ),
+        kHeight10,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text(
+                'Your Activity',
+                style: TextStyle(
+                  color: kBlack,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Icon(
+                Icons.notes_rounded,
+                size: 35,
+                color: kBlueColor,
+              )
+            ],
+          ),
+        ),
+        // kHeight20,
         ListView.separated(
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 10,
             shrinkWrap: true,
             separatorBuilder: (context, index) => kHeight10,
             itemBuilder: (context, index) {
+              final data = controller.data[index];
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: SizedBox(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      kHeight20,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text(
-                            'Your Activity',
-                            style: TextStyle(
-                              color: kBlack,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Icon(
-                            Icons.notes_rounded,
-                            size: 35,
-                            color: kBlueColor,
-                          )
-                        ],
-                      ),
-                      kHeight20,
-                      const TextRowWidget(
-                          firstText: "Apple Macbook Pro 16' - Silver",
-                          secondText: '\$3,234.03'),
+                      kHeight10,
+                      TextRowWidget(
+                          firstText: data.productName,
+                          secondText: '\$${data.productPrice}'),
                       kHeight5,
                       const Text(
                         "Apple Store",
@@ -64,30 +72,18 @@ class DashboardBottomSection extends StatelessWidget {
                         ),
                       ),
                       kHeight5,
-                      const DashBoardTextWidget(
-                        text: "Return Time Remaining 2 Weeks",
+                      DashBoardTextWidget(
+                        text: "Return Time Remaining ${data.returnTime}",
                       ),
-                      const DashBoardTextWidget(
-                        text: "1342 Colorado Street, Suite  32 - 92003",
+                      kHeight5,
+                      DashBoardTextWidget(
+                        text: data.address,
                       ),
                       kHeight10,
                       Divider(
                         color: Colors.grey[300],
                         thickness: 1,
                       ),
-                      kHeight10,
-                      const TextRowWidget(
-                          firstText: "Ueno Coffee Filters",
-                          secondText: "\$5.03"),
-                      kHeight10,
-                      const Text(
-                        "Apple Store",
-                        style: TextStyle(
-                          color: kBlack,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
                     ],
                   ),
                 ),

@@ -7,10 +7,10 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBarWidget(),
+          const SliverAppBarWidget(),
           DashboardBottomSection(),
         ],
       ),
